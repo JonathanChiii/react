@@ -1,25 +1,35 @@
+import { Component } from 'react';
 import logo from './logo.svg';
+import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
+import Listings from './components/ListingsComponent';
+import { ITEMS } from './shared/items' ;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items : ITEMS
+    };
+    
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navbar dark color="primary">
+          <div className='container'>
+            <NavbarBrand href="http://google.com"> YeeBay </NavbarBrand>
+          </div>
+        </Navbar>
+        <Listings items = {this.state.items} />
+      </div>
+    );
+  }
 }
 
 export default App;
+/* this app is an export from App.js file */
